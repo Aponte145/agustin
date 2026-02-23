@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticiones, Quejas y Reclamos (PQR) | Agustín de la Sierra</title>
+    
+    <!-- SEO & IA -->
+    <meta name="description" content="Canal oficial para radicar sus Peticiones, Quejas y Reclamos ante Agustín de la Sierra. Atención transparente y oportuna.">
+    
+    <link rel="icon" type="image/png" href="IMAGES/Isotipo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="agustin-styles.css">
+
+    <style>
+        /* Estilo Resaltado para el Menú Distribuidor Uniforme */
+        .nav-link-highlight { background-color: #FC638B; color: white !important; padding: 8px 16px !important; border-radius: 4px; font-weight: bold !important; transition: all 0.3s ease; }
+        .nav-link-highlight:hover { background-color: #111438; transform: scale(1.05); }
+        
+        /* Estilo Resaltado para Unirme al Club */
+        .nav-link-club { border: 1px solid #45D4DB; color: #45D4DB !important; padding: 7px 15px !important; border-radius: 4px; transition: all 0.3s ease; font-weight: 600 !important; }
+        .nav-link-club:hover { background-color: #45D4DB; color: #111438 !important; }
+
+        /* --- UNIFICACIÓN DE ESTILO DE FORMULARIO (QA APPROVED) --- */
+        .input-group { position: relative; margin-bottom: 30px; }
+        .input-field { 
+            width: 100%; 
+            padding: 10px 0; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 14px; 
+            border: none; 
+            border-bottom: 1px solid #ddd; 
+            background: transparent; 
+            outline: none; 
+            transition: border-color 0.3s; 
+        }
+        
+        /* Ajuste: Borde Navy al hacer foco */
+        .input-field:focus { border-bottom-color: var(--navy); }
+        
+        .input-label { 
+            position: absolute; 
+            top: 10px; 
+            left: 0; 
+            font-family: 'Poiret One', cursive; 
+            font-size: 12px; 
+            letter-spacing: 0.1em; 
+            color: #999; 
+            pointer-events: none; 
+            transition: all 0.3s ease; 
+            text-transform: uppercase; 
+        }
+        
+        /* Efecto flotante: Color Navy (Standard) sustituye al Rosado */
+        .input-field:focus ~ .input-label, 
+        .input-field:not(:placeholder-shown) ~ .input-label,
+        .input-field:valid ~ .input-label { 
+            top: -15px; 
+            font-size: 10px; 
+            color: var(--navy); 
+            font-weight: bold; 
+        }
+
+        /* --- ESTÁNDAR DE ANIMACIÓN DE BOTONES --- */
+        .btn-unified { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
+            position: relative; 
+            overflow: hidden; 
+            display: inline-block;
+        }
+        .btn-unified:hover { 
+            transform: translateY(-3px) scale(1.02) !important; 
+            box-shadow: 0 10px 20px rgba(252, 99, 139, 0.2) !important; 
+            background-color: #FC638B !important; 
+            border-color: #FC638B !important; 
+            color: white !important; 
+        }
+
+        #form-notice { display: none; background: #FFF4F6; border: 1px solid #FC638B; color: #111438; padding: 15px; font-size: 11px; margin-top: 20px; text-align: left; border-radius: 4px; border-left-width: 4px; line-height: 1.6; }
+        
+        .legal-check-wrapper { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; text-align: left; font-size: 10px; color: #666; line-height: 1.4; margin-top: 20px; }
+        .legal-check-wrapper input { margin-top: 3px; accent-color: #FC638B; }
+
+        #mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: #111438; z-index: 2000; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #mobile-menu.open { right: 0; }
+        .mobile-nav-link { font-family: 'Poiret One', cursive; font-size: 24px; color: white; margin: 20px 0; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="https://api.whatsapp.com/send?phone=573225693573" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- MENÚ MÓVIL UNIFORME -->
+    <div id="mobile-menu">
+        <button class="absolute top-8 right-8 text-white text-3xl" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="sabores.html" class="mobile-nav-link">Sabores</a>
+        <a href="distribuidores.html" class="mobile-nav-link">Ser Distribuidor</a>
+        <a href="club-agustin.html" class="mobile-nav-link">Unirme al Club</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+    </div>
+
+    <!-- HEADER UNIFORME -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <nav class="max-w-[1400px] w-full px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html"><img src="IMAGES/logo.png" alt="Logo" class="logo-img"></a>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="sabores.html" class="nav-link">Sabores</a>
+                <a href="distribuidores.html" class="nav-link nav-link-highlight">Ser Distribuidor</a>
+                <a href="club-agustin.html" class="nav-link nav-link-club">Unirme al Club</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO PQR -->
+        <section class="hero-sabores" style="min-height: 45vh;">
+            <div class="hero-bg-img" style="background-image: url('IMAGES/HeroPQR.png');"></div>
+            <div class="absolute inset-0 bg-[#111438] opacity-75 z-[2]"></div>
+            <div class="relative z-[3] px-6 max-w-5xl mx-auto text-center">
+                <p class="font-body italic text-[var(--blue)] mb-4 tracking-widest text-sm font-bold uppercase reveal-element uppercase">Atención al Ciudadano</p>
+                <h1 class="font-display text-3xl md:text-5xl mb-6 tracking-widest reveal-element leading-tight uppercase">Peticiones, Quejas y Reclamos</h1>
+                <p class="font-body text-white/70 max-w-2xl mx-auto text-xs md:text-sm reveal-element leading-relaxed">Su opinión nos permite mejorar. Este es nuestro canal oficial para la recepción y trámite de sus solicitudes conforme a la ley colombiana.</p>
+            </div>
+        </section>
+
+        <!-- FORMULARIO PQR -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white shadow-2xl p-8 md:p-16 border-t-8 border-[var(--navy)] reveal-element">
+                    <h3 class="font-display text-2xl text-[var(--navy)] mb-12 tracking-widest text-center uppercase">Formulario de Radicación</h3>
+                    
+                    <form id="pqr-form" onsubmit="handlePQR(event)" novalidate>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="input-group">
+                                <input type="text" id="pqr-name" class="input-field" placeholder=" ">
+                                <label class="input-label">Nombre Completo</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" id="pqr-email" class="input-field" placeholder=" ">
+                                <label class="input-label">Correo Electrónico</label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="input-group">
+                                <div class="flex items-center border-b border-[#ddd]">
+                                    <span class="text-gray-400 text-sm pr-2">+57</span>
+                                    <input type="tel" id="pqr-phone" class="input-field border-none py-2" placeholder=" ">
+                                </div>
+                                <label class="input-label" style="top: -15px; font-size: 10px;">WhatsApp / Teléfono</label>
+                            </div>
+                            <div class="input-group">
+                                <select id="pqr-type" class="input-field">
+                                    <option value="" disabled selected></option>
+                                    <option value="Petición">Petición</option>
+                                    <option value="Queja">Queja</option>
+                                    <option value="Reclamo">Reclamo</option>
+                                    <option value="Sugerencia">Sugerencia</option>
+                                    <option value="Felicitación">Felicitación</option>
+                                </select>
+                                <label class="input-label">Tipo de Solicitud</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <textarea id="pqr-message" class="input-field h-40 resize-none" placeholder=" "></textarea>
+                            <label class="input-label">Descripción de los hechos / Motivo</label>
+                        </div>
+
+                        <label class="legal-check-wrapper">
+                            <input type="checkbox" id="pqr-legal-check">
+                            <span>He leído y acepto el Aviso de Privacidad. Autorizo a AGUSTIN DE LA SIERRA S.A.S. a tratar mis datos para fines de mercadeo y a compartirlos con sus aliados comerciales estratégicos para el envío de publicidad de terceros, así como a contactarme vía WhatsApp, correo, teléfono y redes sociales conforme a la ley.</span>
+                        </label>
+
+                        <div id="form-notice"></div>
+
+                        <div class="mt-12 text-center">
+                            <button type="submit" class="btn-unified dark w-full md:w-auto px-16 py-4 uppercase font-bold tracking-widest">Radicar Solicitud Ahora</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER UNIFORME -->
+    <footer class="flex flex-col items-center bg-[#111438] py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="IMAGES/logo-white.png" alt="Logo Blanco" class="logo-img-footer mx-auto mb-10" style="height: 90px;">
+            <div class="flex justify-center gap-10 mb-10">
+                 <a href="https://www.instagram.com/agustindlasierra/" target="_blank" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-facebook"></i></a>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="PQR.html" class="footer-link" style="color: var(--pink);">PQR</a>
+                <a href="politica-de-datos.html" class="footer-link">POLÍTICA DE DATOS</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            <p class="text-[10px] text-white/20 tracking-widest uppercase">© 2026 AGUSTÍN DE LA SIERRA · COLOMBIA</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+        window.addEventListener('scroll', () => { const h = document.getElementById('main-header'); if(h) h.classList.toggle('scrolled', window.scrollY > 50); });
+
+        function handlePQR(e) {
+            e.preventDefault();
+            const notice = document.getElementById('form-notice');
+            const name = document.getElementById('pqr-name').value.trim();
+            const email = document.getElementById('pqr-email').value.trim();
+            const phone = document.getElementById('pqr-phone').value.trim();
+            const type = document.getElementById('pqr-type').value;
+            const message = document.getElementById('pqr-message').value.trim();
+            const check = document.getElementById('pqr-legal-check');
+
+            notice.style.display = "none";
+            notice.innerText = "";
+
+            // Validaciones con avisos en español
+            if (!name) { showError("Estimado usuario, el Nombre Completo es obligatorio para radicar su solicitud."); return; }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError("Por favor, ingrese un correo electrónico válido para recibir su respuesta."); return; }
+            if (!phone || !/^[0-9]{10}$/.test(phone)) { showError("El número celular debe tener 10 dígitos numéricos."); return; }
+            if (!type) { showError("Debe seleccionar el Tipo de Solicitud que desea radicar."); return; }
+            if (message.length < 15) { showError("Por favor, amplíe la descripción de su solicitud (mínimo 15 caracteres)."); return; }
+            if (!check.checked) { showError("Es indispensable aceptar el Aviso de Privacidad para proceder con la radicación."); return; }
+
+            // ÉXITO
+            notice.style.background = "#E6FFFA";
+            notice.style.borderColor = "#38B2AC";
+            notice.innerHTML = "<strong>¡Radicación Exitosa!</strong> Su solicitud ha sido ingresada correctamente. En un plazo máximo de 15 días hábiles recibirá respuesta formal en su correo electrónico.";
+            notice.style.display = "block";
+            
+            document.getElementById('pqr-form').style.opacity = "0.7";
+            document.getElementById('pqr-form').querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
+        }
+
+        function showError(msg) {
+            const n = document.getElementById('form-notice');
+            n.style.background = "#FFF4F6"; 
+            n.style.borderColor = "#FC638B";
+            n.innerText = msg; 
+            n.style.display = "block";
+        }
+
+        const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

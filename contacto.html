@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Agustín de la Sierra | Vinos en Agustín Codazzi, Cesar</title>
+    
+    <!-- SEO & IA -->
+    <meta name="description" content="Contáctanos para pedidos, eventos o soporte comercial. Agustín de la Sierra, el auténtico vino artesanal de la Serranía del Perijá.">
+    
+    <link rel="icon" type="image/png" href="IMAGES/Isotipo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="agustin-styles.css">
+    
+    <style>
+        /* Estilo Resaltado para el Menú Distribuidor Uniforme */
+        .nav-link-highlight { background-color: #FC638B; color: white !important; padding: 8px 16px !important; border-radius: 4px; font-weight: bold !important; transition: all 0.3s ease; }
+        .nav-link-highlight:hover { background-color: #111438; transform: scale(1.05); }
+        
+        /* Estilo Resaltado para Unirme al Club */
+        .nav-link-club { border: 1px solid #45D4DB; color: #45D4DB !important; padding: 7px 15px !important; border-radius: 4px; transition: all 0.3s ease; font-weight: 600 !important; }
+        .nav-link-club:hover { background-color: #45D4DB; color: #111438 !important; }
+
+        /* --- UNIFICACIÓN DE ESTILO DE FORMULARIO (NO PINK) --- */
+        .input-group { position: relative; margin-bottom: 30px; }
+        .input-field { 
+            width: 100%; 
+            padding: 10px 0; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 14px; 
+            border: none; 
+            border-bottom: 1px solid #ddd; 
+            background: transparent; 
+            outline: none; 
+            transition: border-color 0.3s; 
+        }
+        
+        /* Ajuste: Borde Navy al hacer foco */
+        .input-field:focus { border-bottom-color: var(--navy); }
+        
+        .input-label { 
+            position: absolute; 
+            top: 10px; 
+            left: 0; 
+            font-family: 'Poiret One', cursive; 
+            font-size: 12px; 
+            letter-spacing: 0.1em; 
+            color: #999; 
+            pointer-events: none; 
+            transition: all 0.3s ease; 
+            text-transform: uppercase; 
+        }
+        
+        /* Efecto flotante unificado: Color Navy (Standard) sustituye al Rosado */
+        .input-field:focus ~ .input-label, 
+        .input-field:not(:placeholder-shown) ~ .input-label { 
+            top: -15px; 
+            font-size: 10px; 
+            color: var(--navy); 
+            font-weight: bold; 
+        }
+
+        /* --- ESTÁNDAR DE ANIMACIÓN DE BOTONES --- */
+        .btn-unified { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
+            position: relative; 
+            overflow: hidden; 
+            display: inline-block;
+        }
+        .btn-unified:hover { 
+            transform: translateY(-3px) scale(1.02) !important; 
+            box-shadow: 0 10px 20px rgba(252, 99, 139, 0.2) !important; 
+            background-color: #FC638B !important; 
+            border-color: #FC638B !important; 
+            color: white !important; 
+        }
+
+        .contact-icon-box { width: 50px; height: 50px; border: 1px solid var(--blue); display: flex; align-items: center; justify-content: center; color: var(--navy); font-size: 1.2rem; transition: all 0.3s ease; margin-bottom: 15px; }
+        .contact-item:hover .contact-icon-box { background-color: var(--pink); border-color: var(--pink); color: white; transform: translateY(-5px); }
+
+        .legal-check-wrapper { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; text-align: left; font-size: 10px; color: #666; line-height: 1.4; margin-top: 20px; }
+        .legal-check-wrapper input { margin-top: 3px; accent-color: #FC638B; }
+        
+        #form-notice { display: none; background: #FFF4F6; border: 1px solid #FC638B; color: #111438; padding: 15px; font-size: 11px; margin-top: 20px; text-align: left; border-radius: 4px; border-left-width: 4px; line-height: 1.6; }
+
+        .map-container { width: 100%; height: 450px; filter: grayscale(100%); transition: filter 0.5s ease; border-top: 1px solid #eee; }
+        .map-container:hover { filter: grayscale(0%); }
+
+        #mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: #111438; z-index: 2000; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #mobile-menu.open { right: 0; }
+        .mobile-nav-link { font-family: 'Poiret One', cursive; font-size: 24px; color: white; margin: 20px 0; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="https://api.whatsapp.com/send?phone=573225693573" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- MENÚ MÓVIL UNIFORME -->
+    <div id="mobile-menu">
+        <button class="absolute top-8 right-8 text-white text-3xl" onclick="toggleMenu()" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="sabores.html" class="mobile-nav-link">Sabores</a>
+        <a href="distribuidores.html" class="mobile-nav-link">Ser Distribuidor</a>
+        <a href="club-agustin.html" class="mobile-nav-link">Unirme al Club</a>
+        <a href="contacto.html" class="mobile-nav-link" style="color: #FC638B;">Contacto</a>
+    </div>
+
+    <!-- HEADER UNIFORME -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <nav class="max-w-[1400px] w-full px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html"><img src="IMAGES/logo.png" alt="Logo" class="logo-img"></a>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="sabores.html" class="nav-link">Sabores</a>
+                <a href="distribuidores.html" class="nav-link nav-link-highlight">Ser Distribuidor</a>
+                <a href="club-agustin.html" class="nav-link nav-link-club">Unirme al Club</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO CONTACTO ACTUALIZADO -->
+        <section class="hero-sabores" style="min-height: 50vh;">
+            <div class="hero-bg-img" style="background-image: url('IMAGES/HEROContacto.png');"></div>
+            <div class="absolute inset-0 bg-[#111438] opacity-65 z-[2]"></div>
+            <div class="relative z-[3] px-6 max-w-5xl mx-auto text-center">
+                <p class="font-body italic text-[var(--blue)] mb-4 tracking-widest text-sm font-bold uppercase reveal-element">Atención Personalizada</p>
+                <h1 class="font-display text-4xl md:text-7xl mb-6 tracking-widest reveal-element leading-none uppercase">Contáctanos</h1>
+                <p class="font-body text-white/80 max-w-2xl mx-auto text-sm md:text-base reveal-element leading-relaxed">Descubre nuestra cava, realiza pedidos especiales o visítanos en Agustín Codazzi. Brindamos asesoría experta sobre el auténtico vino colombiano artesanal.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CONTACTO -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div class="reveal-element">
+                    <h2 class="font-display text-3xl text-[var(--navy)] mb-10 tracking-widest border-b-2 border-[var(--blue)] inline-block pb-2">Información Directa</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 text-left">
+                        <div class="contact-item">
+                            <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
+                            <h4 class="font-display font-bold text-sm mb-2">Llámanos</h4>
+                            <p class="font-body text-sm text-gray-600">+57 322 569 3573</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                            <h4 class="font-display font-bold text-sm mb-2">Fábrica</h4>
+                            <p class="font-body text-sm text-gray-600">Cra. 6 # 16-48, Agustín Codazzi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMULARIO DE CONTACTO -->
+                <div class="bg-white shadow-2xl p-10 lg:p-16 border-t-8 border-[var(--navy)] reveal-element">
+                    <h3 class="font-display text-2xl text-[var(--navy)] mb-8 tracking-widest text-center uppercase">Déjanos un Mensaje</h3>
+                    <form id="contact-form" onsubmit="handleContact(event)" novalidate>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="input-group">
+                                <input type="text" id="name-field" class="input-field" placeholder=" ">
+                                <label class="input-label">Nombre</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="lastname-field" class="input-field" placeholder=" ">
+                                <label class="input-label">Apellido</label>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="input-group">
+                                <div class="flex items-center border-b border-[#ddd]">
+                                    <span class="text-gray-400 text-sm pr-2">+57</span>
+                                    <input type="tel" id="phone-field" class="input-field border-none py-2" placeholder=" ">
+                                </div>
+                                <label class="input-label" style="top: -15px; font-size: 10px;">Celular</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="date" id="dob-field" class="input-field" placeholder=" ">
+                                <label class="input-label">Fecha de Nacimiento</label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email-field" class="input-field" placeholder=" ">
+                            <label class="input-label">Correo Electrónico</label>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="message-field" class="input-field h-32 resize-none" placeholder=" "></textarea>
+                            <label class="input-label">¿En qué podemos ayudarte?</label>
+                        </div>
+                        
+                        <label class="legal-check-wrapper">
+                            <input type="checkbox" id="legal-check-contact">
+                            <span>He leído y acepto el Aviso de Privacidad. Autorizo a AGUSTIN DE LA SIERRA S.A.S. a tratar mis datos para fines de mercadeo y a compartirlos con sus aliados comerciales estratégicos para el envío de publicidad de terceros, así como a contactarme vía WhatsApp, correo, teléfono y redes sociales conforme a la ley.</span>
+                        </label>
+                        
+                        <div id="form-notice"></div>
+                        <button type="submit" class="btn-unified w-full dark mt-6 py-4 uppercase font-bold tracking-widest">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAPA -->
+        <section class="reveal-element">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.492543949704!2d-73.24370632501718!3d10.032158890075056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8a608149d5a7d7%3A0xc35063071850787a!2sCra.%206%20%2316-48%2C%20Agust%C3%ADn%20Codazzi%2C%20Cesar!5e0!3m2!1ses!2sco!4v1715800000000!5m2!1ses!2sco" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER CON REDES SOCIALES RESTAURADO -->
+    <footer class="flex flex-col items-center bg-[#111438] py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="IMAGES/logo-white.png" alt="Logo Blanco" class="logo-img-footer mx-auto mb-10" style="height: 90px;">
+            
+            <div class="flex justify-center gap-10 mb-10">
+                 <a href="https://www.instagram.com/agustindlasierra/" target="_blank" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-facebook"></i></a>
+            </div>
+
+            <nav class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="PQR.html" class="footer-link">PQR</a>
+                <a href="politica-de-datos.html" class="footer-link">POLÍTICA DE DATOS</a>
+                <a href="contacto.html" class="footer-link" style="color: var(--pink);">CONTACTO</a>
+            </nav>
+            <p class="text-[10px] text-white/20 tracking-widest uppercase">© 2026 AGUSTÍN DE LA SIERRA · COLOMBIA</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+        window.addEventListener('scroll', () => { 
+            const h = document.getElementById('main-header'); 
+            if(window.scrollY > 50) h.classList.add('scrolled'); 
+            else h.classList.remove('scrolled'); 
+        });
+
+        function handleContact(e) {
+            e.preventDefault();
+            const notice = document.getElementById('form-notice');
+            const name = document.getElementById('name-field').value.trim();
+            const phone = document.getElementById('phone-field').value.trim();
+            const email = document.getElementById('email-field').value.trim();
+            const check = document.getElementById('legal-check-contact');
+
+            notice.style.display = "none";
+
+            if (!name || !phone || !email) {
+                showError("Por favor, complete los campos obligatorios para enviar su mensaje.");
+                return;
+            }
+
+            if (!check.checked) {
+                showError("Debe aceptar el Aviso de Privacidad para continuar.");
+                return;
+            }
+
+            notice.style.background = "#E6FFFA";
+            notice.style.borderColor = "#38B2AC";
+            notice.innerHTML = "<strong>¡Mensaje Enviado!</strong> Nos pondremos en contacto con usted lo antes posible.";
+            notice.style.display = "block";
+            document.getElementById('contact-form').reset();
+        }
+
+        function showError(msg) {
+            const n = document.getElementById('form-notice');
+            n.style.background = "#FFF4F6";
+            n.style.borderColor = "#FC638B";
+            n.innerText = msg;
+            n.style.display = "block";
+        }
+
+        const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

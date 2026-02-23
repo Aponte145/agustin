@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agustín de la Sierra | Vinos de Frutas Colombianas</title>
+    
+    <!-- SEO & IA OPTIMIZATION -->
+    <meta name="description" content="Vino colombiano artesanal elaborado con frutas de la Serranía del Perijá. Disfruta la exclusividad de Agustín de la Sierra: Corozo, Mora, Café y Sangrías.">
+    <meta name="keywords" content="vino de fruta colombia, agustin de la sierra, vino artesanal cesar, vino de corozo, sangria artesanal colombiana">
+    <link rel="canonical" href="https://agustindelasierra.com/">
+
+    <!-- DATOS ESTRUCTURADOS (JSON-LD) PARA IA Y GOOGLE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Winery",
+      "name": "Agustín de la Sierra",
+      "image": "https://agustindelasierra.com/IMAGES/HBC09933.jpg.png",
+      "description": "Productora de vinos artesanales de frutas en la Serranía del Perijá.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Cra. 6 # 16-48",
+        "addressLocality": "Agustín Codazzi",
+        "addressRegion": "Cesar",
+        "addressCountry": "CO"
+      },
+      "telephone": "+573225693573",
+      "url": "https://agustindelasierra.com",
+      "priceRange": "$$"
+    }
+    </script>
+    
+    <link rel="icon" type="image/png" href="IMAGES/Isotipo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="agustin-styles.css">
+
+    <style>
+        /* --- NAVEGACIÓN UNIFORME --- */
+        .nav-link-highlight { background-color: #FC638B; color: white !important; padding: 8px 16px !important; border-radius: 4px; font-weight: bold !important; transition: all 0.3s ease; }
+        .nav-link-highlight:hover { background-color: #111438; transform: scale(1.05); }
+        
+        .nav-link-club { border: 1px solid #45D4DB; color: #45D4DB !important; padding: 7px 15px !important; border-radius: 4px; transition: all 0.3s ease; font-weight: 600 !important; }
+        .nav-link-club:hover { background-color: #45D4DB; color: #111438 !important; }
+
+        /* --- ESTÁNDAR DE ANIMACIÓN DE BOTONES --- */
+        .btn-unified { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
+            position: relative; 
+            overflow: hidden; 
+            display: inline-block;
+        }
+        .btn-unified:hover { 
+            transform: translateY(-3px) scale(1.02) !important; 
+            box-shadow: 0 10px 20px rgba(252, 99, 139, 0.2) !important; 
+            background-color: #FC638B !important; 
+            border-color: #FC638B !important; 
+            color: white !important; 
+        }
+
+        /* --- MÓDULO HISTORIA CON NAVEGACIÓN MANUAL --- */
+        .history-slider-container { 
+            position: relative; 
+            width: 100%; 
+            height: 450px; 
+            overflow: hidden; 
+            border-radius: 4px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            background-color: #fcfcfc; 
+        }
+        .history-slide { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            opacity: 0; 
+            transition: opacity 1s ease; 
+            object-fit: contain; 
+            object-position: center;
+        }
+        .history-slide.active { opacity: 1; }
+
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--navy);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 15;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .slider-nav-btn:hover { background-color: var(--pink); color: white; transform: translateY(-50%) scale(1.1); }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+        .slider-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
+        .slider-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(0, 0, 0, 0.2); cursor: pointer; transition: all 0.3s; border: 1px solid rgba(0,0,0,0.05); }
+        .slider-dot.active { background: #FC638B; transform: scale(1.2); }
+
+        /* --- NEWSLETTER --- */
+        .input-group { position: relative; margin-bottom: 25px; }
+        .newsletter-input { width: 100%; border: none; border-bottom: 1px solid var(--navy); padding: 15px 5px; outline: none; background: transparent; font-family: 'Montserrat', sans-serif; font-size: 14px; transition: border-color 0.3s; }
+        .newsletter-input:focus { border-bottom-color: var(--pink); }
+        .input-label { position: absolute; top: 15px; left: 5px; font-family: 'Poiret One', cursive; font-size: 12px; letter-spacing: 0.1em; color: #999; pointer-events: none; transition: all 0.3s ease; text-transform: uppercase; }
+        
+        .newsletter-input:focus ~ .input-label, 
+        .newsletter-input:not(:placeholder-shown) ~ .input-label,
+        .newsletter-input[type="date"] ~ .input-label { top: -10px; font-size: 10px; color: var(--pink); font-weight: bold; }
+
+        #mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: #111438; z-index: 2000; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #mobile-menu.open { right: 0; }
+        .mobile-nav-link { font-family: 'Poiret One', cursive; font-size: 24px; color: white; margin: 20px 0; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; }
+        
+        .subscription-modal { position: fixed !important; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(17, 20, 56, 0.85); backdrop-filter: blur(8px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .subscription-modal.active { display: flex !important; }
+    </style>
+</head>
+<body>
+
+    <a href="https://api.whatsapp.com/send?phone=573225693573" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- MENÚ MÓVIL UNIFORME -->
+    <div id="mobile-menu">
+        <button class="absolute top-8 right-8 text-white text-3xl" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="mobile-nav-link" style="color: #FC638B;">Inicio</a>
+        <a href="sabores.html" class="mobile-nav-link">Sabores</a>
+        <a href="distribuidores.html" class="mobile-nav-link">Ser Distribuidor</a>
+        <a href="club-agustin.html" class="mobile-nav-link">Unirme al Club</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+    </div>
+
+    <!-- HEADER UNIFORME -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <nav class="max-w-[1400px] w-full px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html"><img src="IMAGES/logo.png" alt="Logotipo oficial Agustín de la Sierra" class="logo-img"></a>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="nav-link" style="color: var(--pink);">Inicio</a>
+                <a href="sabores.html" class="nav-link">Sabores</a>
+                <a href="distribuidores.html" class="nav-link nav-link-highlight">Ser Distribuidor</a>
+                <a href="club-agustin.html" class="nav-link nav-link-club">Unirme al Club</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero-sabores">
+            <div class="hero-bg-img" style="background-image: url('IMAGES/HBC09933.jpg.png');"></div>
+            <div class="absolute inset-0 bg-[#111438] opacity-60 z-[2]"></div>
+            <div class="relative z-[3] px-6 max-w-4xl text-center">
+                <span class="font-body italic text-[var(--blue)] tracking-widest block mb-4 uppercase font-bold reveal-element">El auténtico Vino Colombiano</span>
+                <h1 class="font-display text-4xl md:text-7xl text-white mb-8 tracking-widest leading-tight reveal-element uppercase">Vinos de Frutas Colombianas</h1>
+                <p class="font-body text-white/90 text-sm md:text-base leading-loose mb-10 max-w-2xl mx-auto font-light reveal-element">
+                    Elaborados artesanalmente con frutas colombianas de la provincia y de la Serranía del Perijá.
+                </p>
+                <a href="sabores.html" class="btn-unified reveal-element">Catálogo de Sabores</a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN NUESTRA HISTORIA -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="font-display text-3xl mb-12 tracking-widest text-[var(--navy)] reveal-element uppercase">Nuestra Historia y Origen</h2>
+                <div class="history-slider-container reveal-element">
+                    <button class="slider-nav-btn prev-btn" onclick="prevSlide()" aria-label="Ver historia anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-nav-btn next-btn" onclick="nextSlide()" aria-label="Ver siguiente historia"><i class="fas fa-chevron-right"></i></button>
+
+                    <img src="IMAGES/el-origen.png" class="history-slide active" alt="Imagen del origen de los viñedos artesanales en Agustín Codazzi">
+                    <img src="IMAGES/el-regreso.png" class="history-slide" alt="Fotografía del regreso a la tradición vitivinícola colombiana">
+                    <img src="IMAGES/La-tradicion.png" class="history-slide" alt="Proceso tradicional de elaboración de vinos de frutas">
+                    <img src="IMAGES/la-creacion.png" class="history-slide" alt="Creación de nuevos sabores de la Serranía del Perijá">
+                    <img src="IMAGES/el-simbolo.png" class="history-slide" alt="El símbolo de calidad de Agustín de la Sierra">
+                    
+                    <div class="slider-dots">
+                        <span class="slider-dot active" onclick="goToSlide(0)"></span>
+                        <span class="slider-dot" onclick="goToSlide(1)"></span>
+                        <span class="slider-dot" onclick="goToSlide(2)"></span>
+                        <span class="slider-dot" onclick="goToSlide(3)"></span>
+                        <span class="slider-dot" onclick="goToSlide(4)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VOCES DE LA SIERRA -->
+        <section class="py-24 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="font-display text-3xl text-[var(--navy)] mb-16 tracking-widest reveal-element uppercase">Voces de la Sierra</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="bg-white p-10 shadow-sm reveal-element">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-20 h-20 rounded-full mx-auto -mt-20 mb-6 border-4 border-white shadow-lg object-cover grayscale" alt="Cliente satisfecha">
+                        <p class="font-body italic text-gray-600 mb-6 text-sm">"Es una joya artesanal. El vino de corozo me transportó a mi infancia en el Caribe."</p>
+                        <h4 class="font-display font-bold text-sm text-[var(--navy)]">Carla Meriño</h4>
+                    </div>
+                    <div class="bg-white p-10 shadow-sm reveal-element" style="transition-delay: 0.2s;">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-20 h-20 rounded-full mx-auto -mt-20 mb-6 border-4 border-white shadow-lg object-cover grayscale" alt="Cliente satisfecho">
+                        <p class="font-body italic text-gray-600 mb-6 text-sm">"La sangría es refrescante y equilibrada. Perfecta para nuestras reuniones familiares."</p>
+                        <h4 class="font-display font-bold text-sm text-[var(--navy)]">Andrés Sierra</h4>
+                    </div>
+                    <div class="bg-white p-10 shadow-sm reveal-element" style="transition-delay: 0.4s;">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-20 h-20 rounded-full mx-auto -mt-20 mb-6 border-4 border-white shadow-lg object-cover grayscale" alt="Cliente de Agustín de la Sierra">
+                        <p class="font-body italic text-gray-600 mb-6 text-sm">"Me encanta que apoyen a los cultivadores locales del Cesar. Un producto con alma."</p>
+                        <h4 class="font-display font-bold text-sm text-[var(--navy)]">Marta Lucia</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER CON TEXTO LEGAL ACTUALIZADO -->
+        <section class="py-24 px-6 bg-white border-t border-gray-100">
+            <div class="max-w-xl mx-auto text-center">
+                <h2 class="font-display text-2xl md:text-3xl mb-6 tracking-widest reveal-element uppercase">¡Siente la esencia de la Sierra!</h2>
+                <p class="font-body text-gray-500 mb-10 reveal-element text-sm">Únete a nuestro boletín y descubre cosechas exclusivas.</p>
+                <form id="newsletter-form" onsubmit="handleSubscription(event)" class="reveal-element" novalidate>
+                    <div class="input-group">
+                        <input type="text" id="user-name" class="newsletter-input" placeholder=" ">
+                        <label class="input-label">Nombre Completo *</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="user-email" class="newsletter-input" placeholder=" ">
+                        <label class="input-label">Correo Electrónico *</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="date" id="user-dob" class="newsletter-input" placeholder=" ">
+                        <label class="input-label">Fecha de Nacimiento *</label>
+                    </div>
+                    <div class="text-left mb-8">
+                        <label class="flex items-start gap-3 cursor-pointer text-[10px] text-gray-500 leading-relaxed">
+                            <input type="checkbox" id="legal-check-home" class="mt-1 accent-[#FC638B]">
+                            <span>He leído y acepto el Aviso de Privacidad. Autorizo a AGUSTIN DE LA SIERRA S.A.S. a tratar mis datos para fines de mercadeo y a compartirlos con sus aliados comerciales estratégicos para el envío de publicidad de terceros, así como a contactarme vía WhatsApp, correo, teléfono y redes sociales conforme a la ley.</span>
+                        </label>
+                    </div>
+                    <div id="form-notice" class="mb-6"></div>
+                    <button type="submit" class="btn-unified dark w-full py-4 uppercase font-bold tracking-widest">¡Quiero ser parte!</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="flex flex-col items-center bg-[#111438] py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="IMAGES/logo-white.png" alt="Logotipo blanco de Agustín de la Sierra" class="logo-img-footer mx-auto mb-10" style="height: 90px;">
+            <div class="flex justify-center gap-10 mb-10">
+                 <a href="https://www.instagram.com/agustindlasierra/" target="_blank" class="text-white text-2xl hover:text-[var(--pink)] transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="text-white text-2xl hover:text-[var(--pink)] transition-colors" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="PQR.html" class="footer-link">PQR</a>
+                <a href="politica-de-datos.html" class="footer-link">POLÍTICA DE DATOS</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            <p class="text-[10px] text-white/20 tracking-widest uppercase">© 2026 AGUSTÍN DE LA SIERRA · COLOMBIA</p>
+        </div>
+    </footer>
+
+    <div id="subscription-modal" class="subscription-modal">
+        <div class="bg-white p-12 text-center max-w-md w-full border-t-8 border-[var(--pink)] shadow-2xl">
+            <h2 class="font-display text-2xl text-[var(--navy)] mb-4 tracking-widest uppercase font-bold">¡Bienvenido!</h2>
+            <p class="font-body text-gray-500 text-sm mb-8 leading-relaxed">Tus datos han sido registrados con éxito. Pronto recibirás noticias exclusivas.</p>
+            <button onclick="closeModal()" class="btn-unified dark w-full py-3">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+        window.addEventListener('scroll', () => { 
+            const h = document.getElementById('main-header'); 
+            if (window.scrollY > 50) h.classList.add('scrolled'); 
+            else h.classList.remove('scrolled'); 
+        });
+
+        let currentS = 0;
+        const slides = document.querySelectorAll('.history-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function goToSlide(n) {
+            if(!slides.length) return;
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            currentS = n;
+            slides[currentS].classList.add('active');
+            dots[currentS].classList.add('active');
+            resetTimer();
+        }
+
+        function nextSlide() { goToSlide((currentS + 1) % slides.length); }
+        function prevSlide() { goToSlide((currentS - 1 + slides.length) % slides.length); }
+        function resetTimer() { clearInterval(sliderInterval); sliderInterval = setInterval(() => { nextSlide(); }, 6000); }
+
+        let sliderInterval = setInterval(() => { nextSlide(); }, 6000);
+
+        function handleSubscription(e) { 
+            e.preventDefault();
+            const check = document.getElementById('legal-check-home');
+            const notice = document.getElementById('form-notice');
+            const name = document.getElementById('user-name').value.trim();
+            const email = document.getElementById('user-email').value.trim();
+            const dob = document.getElementById('user-dob').value;
+
+            if (!name || !email || !dob) { showError("Por favor, completa todos los campos obligatorios para suscribirte."); return; }
+            const age = Math.floor((new Date() - new Date(dob)) / (31557600000));
+            if (age < 18) { showError("Estimado usuario, debe ser mayor de 18 años para suscribirse."); return; }
+            if (!check.checked) { showError("Es obligatorio aceptar el tratamiento de datos personales."); return; }
+            
+            notice.style.display = "none";
+            const m = document.getElementById('subscription-modal');
+            m.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const m = document.getElementById('subscription-modal');
+            m.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('newsletter-form').reset();
+        }
+
+        function showError(msg) {
+            const n = document.getElementById('form-notice');
+            n.style.background = "#FFF4F6"; n.style.borderColor = "#FC638B";
+            n.className = "p-4 border-l-4 text-[10px] text-left text-[#111438]";
+            n.innerText = msg;
+            n.style.display = "block";
+        }
+
+        const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

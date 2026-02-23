@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ser Distribuidor | Alianzas Estratégicas | Agustín de la Sierra</title>
+    
+    <!-- SEO & IA -->
+    <meta name="description" content="Únete a nuestra red nacional de distribuidores en Colombia. Obtén precios especiales, merchandising y stands promocionales de Agustín de la Sierra.">
+    
+    <link rel="icon" type="image/png" href="IMAGES/Isotipo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="agustin-styles.css">
+
+    <style>
+        /* Estilo Resaltado para el Menú Distribuidor Uniforme */
+        .nav-link-highlight { background-color: #FC638B; color: white !important; padding: 8px 16px !important; border-radius: 4px; font-weight: bold !important; transition: all 0.3s ease; }
+        .nav-link-highlight:hover { background-color: #111438; transform: scale(1.05); }
+        
+        /* Estilo Resaltado para Unirme al Club */
+        .nav-link-club { border: 1px solid #45D4DB; color: #45D4DB !important; padding: 7px 15px !important; border-radius: 4px; transition: all 0.3s ease; font-weight: 600 !important; }
+        .nav-link-club:hover { background-color: #45D4DB; color: #111438 !important; }
+
+        .catalog-card { border: 1px solid #eee; transition: all 0.4s ease; background: white; overflow: hidden; height: 100%; }
+        .catalog-card:hover { transform: translateY(-10px); border-color: var(--pink); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .catalog-img-container { height: 250px; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .catalog-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .catalog-card:hover .catalog-img { transform: scale(1.1); }
+
+        /* Estilización Uniforme de Labels */
+        .input-group { position: relative; margin-bottom: 25px; }
+        .input-field { width: 100%; padding: 12px 0; font-family: 'Montserrat', sans-serif; font-size: 14px; border: none; border-bottom: 1px solid #ddd; background: transparent; outline: none; transition: border-color 0.3s; }
+        .input-field:focus { border-bottom-color: var(--pink); }
+        
+        .input-label { position: absolute; top: 12px; left: 0; font-family: 'Poiret One', cursive; font-size: 12px; letter-spacing: 0.1em; color: #999; pointer-events: none; transition: all 0.3s ease; text-transform: uppercase; }
+        
+        .input-field:focus ~ .input-label, 
+        .input-field:not(:placeholder-shown) ~ .input-label { 
+            top: -15px; 
+            font-size: 10px; 
+            color: var(--pink); 
+            font-weight: bold; 
+        }
+
+        .btn-unified { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; position: relative; overflow: hidden; display: inline-block; cursor: pointer; }
+        .btn-unified:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 20px rgba(252, 99, 139, 0.2); background-color: #FC638B; border-color: #FC638B; color: white; }
+
+        #form-notice { display: none; background: #FFF4F6; border: 1px solid #FC638B; color: #111438; padding: 15px; font-size: 11px; margin-top: 20px; text-align: left; border-radius: 4px; border-left-width: 4px; line-height: 1.6; }
+        
+        .legal-check-wrapper { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; text-align: left; font-size: 10px; color: #666; line-height: 1.4; margin-top: 20px; }
+        .legal-check-wrapper input { margin-top: 3px; accent-color: #FC638B; }
+
+        #mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: #111438; z-index: 2000; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #mobile-menu.open { right: 0; }
+        .mobile-nav-link { font-family: 'Poiret One', cursive; font-size: 24px; color: white; margin: 20px 0; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="https://api.whatsapp.com/send?phone=573225693573" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- MENÚ MÓVIL UNIFORME -->
+    <div id="mobile-menu">
+        <button class="absolute top-8 right-8 text-white text-3xl" onclick="toggleMenu()" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="sabores.html" class="mobile-nav-link">Sabores</a>
+        <a href="distribuidores.html" class="mobile-nav-link">Ser Distribuidor</a>
+        <a href="club-agustin.html" class="mobile-nav-link">Unirme al Club</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+    </div>
+
+    <!-- HEADER UNIFORME -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <nav class="max-w-[1400px] w-full px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html"><img src="IMAGES/logo.png" alt="Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150x80?text=Logo+Agustin'"></a>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="sabores.html" class="nav-link">Sabores</a>
+                <a href="distribuidores.html" class="nav-link nav-link-highlight">Ser Distribuidor</a>
+                <a href="club-agustin.html" class="nav-link nav-link-club">Unirme al Club</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO DISTRIBUIDORES -->
+        <section class="hero-sabores" style="min-height: 55vh;">
+            <div class="hero-bg-img" style="background-image: url('IMAGES/herodistribuidores.png');"></div>
+            <div class="absolute inset-0 bg-[#111438] opacity-75 z-[2]"></div>
+            <div class="relative z-[3] px-6 max-w-5xl mx-auto text-center">
+                <p class="font-body italic text-[var(--blue)] mb-4 tracking-widest text-sm font-bold uppercase reveal-element uppercase">Expande tu negocio con nosotros</p>
+                <h1 class="font-display text-3xl md:text-6xl mb-6 tracking-widest reveal-element leading-tight uppercase">Red de Distribuidores Nacional</h1>
+                <p class="font-body text-white/80 max-w-2xl mx-auto text-sm md:text-base reveal-element leading-relaxed">Únete a la familia de <strong>Agustín de la Sierra</strong> y lleva el auténtico vino de frutas colombiano a tu punto de venta. Beneficios exclusivos unicamente en Colombia.</p>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS Y OPCIONES -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="font-display text-3xl text-[var(--navy)] mb-4 tracking-widest uppercase">Catálogo para Aliados</h2>
+                    <div class="w-12 h-1 bg-[var(--pink)] mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 reveal-element">
+                    <!-- Caja x12 -->
+                    <div class="catalog-card p-6 flex flex-col items-center text-center">
+                        <div class="catalog-img-container w-full mb-6">
+                            <img src="IMAGES/CAJA-12-UNIDADES-750ml.png" alt="Caja x12 unidades" class="catalog-img" onerror="this.src='https://via.placeholder.com/300x250?text=Caja+x12+Vinos'">
+                            <span class="absolute top-4 right-4 bg-[var(--blue)] text-white text-[10px] px-3 py-1 font-bold">MÁS POPULAR</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-[var(--navy)] mb-2">CAJA X12 UNIDADES</h3>
+                        <p class="text-xs text-gray-400 mb-4 font-body uppercase tracking-widest">750ml o 330ml</p>
+                        <p class="text-sm text-gray-600 mb-6 font-body leading-relaxed italic">Precio especial a convenir según volumen. Cualquier sabor disponible.</p>
+                    </div>
+
+                    <!-- Caja x6 -->
+                    <div class="catalog-card p-6 flex flex-col items-center text-center">
+                        <div class="catalog-img-container w-full mb-6">
+                            <img src="IMAGES/CAJA-6-UNIDADES-750ml.png" alt="Caja x6 unidades" class="catalog-img" onerror="this.src='https://via.placeholder.com/300x250?text=Caja+x6+Vinos'">
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-[var(--navy)] mb-2">CAJA X6 UNIDADES</h3>
+                        <p class="text-xs text-gray-400 mb-4 font-body uppercase tracking-widest">750ml o 330ml</p>
+                        <p class="text-sm text-gray-600 mb-6 font-body leading-relaxed italic">Ideal para tiendas boutique y licoreras premium. Sabores a elección.</p>
+                    </div>
+
+                    <!-- Bag in Box -->
+                    <div class="catalog-card p-6 flex flex-col items-center text-center">
+                        <div class="catalog-img-container w-full mb-6">
+                            <img src="IMAGES/SANGRIA-BAG-IN-BOX.png" alt="Sangría Bag-in-Box" class="catalog-img" onerror="this.src='https://via.placeholder.com/300x250?text=Bag-in-Box+Sangria'">
+                            <span class="absolute top-4 right-4 bg-[var(--pink)] text-white text-[10px] px-3 py-1 font-bold">HOSTELERÍA</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-[var(--navy)] mb-2">SANGRÍA BAG-IN-BOX</h3>
+                        <p class="text-xs text-gray-400 mb-4 font-body uppercase tracking-widest">1.5 Ltrs o 3 Ltrs</p>
+                        <p class="text-sm text-gray-600 mb-6 font-body leading-relaxed italic">Optimiza tu servicio en restaurantes. Caja x6 unidades, precio mayorista.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE ASPIRANTES CON TEXTO LEGAL ACTUALIZADO -->
+        <section class="py-24 px-6 bg-gray-50">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white shadow-2xl p-8 md:p-16 border-t-8 border-[var(--blue)] reveal-element">
+                    <h3 class="font-display text-2xl text-[var(--navy)] mb-4 tracking-widest text-center uppercase">Postula tu Negocio</h3>
+                    <p class="text-center font-body text-xs text-gray-400 mb-12 uppercase tracking-widest">Queremos conocer tu potencial como aliado comercial</p>
+                    
+                    <form id="distributor-form" onsubmit="handleDistributor(event)" novalidate>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="input-group">
+                                <input type="text" id="dist-name" class="input-field" placeholder=" ">
+                                <label class="input-label">Nombre del Contacto</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="dist-business" class="input-field" placeholder=" ">
+                                <label class="input-label">Nombre de tu Negocio / Empresa</label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="input-group">
+                                <select id="dist-type" class="input-field">
+                                    <option value="" disabled selected></option>
+                                    <option value="restaurante">Restaurante / Bar</option>
+                                    <option value="licorera">Licorera / Bodega</option>
+                                    <option value="hotel">Hotel / Turismo</option>
+                                    <option value="distribuidora">Distribuidora Mayorista</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                                <label class="input-label">Tipo de Negocio</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="dist-city" class="input-field" placeholder=" ">
+                                <label class="input-label">Ciudad de Ubicación</label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="input-group">
+                                <input type="email" id="dist-email" class="input-field" placeholder=" ">
+                                <label class="input-label">Correo Electrónico</label>
+                            </div>
+                            <div class="input-group">
+                                <div class="flex items-center border-b border-[#ddd]">
+                                    <span class="text-gray-400 text-sm pr-2">+57</span>
+                                    <input type="tel" id="dist-phone" class="input-field border-none py-2" placeholder=" ">
+                                </div>
+                                <label class="input-label" style="top: -15px; font-size: 10px;">WhatsApp de Contacto</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="date" id="dist-dob" class="input-field">
+                            <label class="input-label">Fecha de Nacimiento (Contacto)</label>
+                        </div>
+
+                        <label class="legal-check-wrapper">
+                            <input type="checkbox" id="dist-legal-check">
+                            <span>He leído y acepto el Aviso de Privacidad. Autorizo a AGUSTIN DE LA SIERRA S.A.S. a tratar mis datos para fines de mercadeo y a compartirlos con sus aliados comerciales estratégicos para el envío de publicidad de terceros, así como a contactarme vía WhatsApp, correo, teléfono y redes sociales conforme a la ley.</span>
+                        </label>
+
+                        <div id="form-notice"></div>
+
+                        <div class="mt-12 text-center">
+                            <button type="submit" class="btn-unified dark w-full py-4 uppercase font-bold tracking-widest">Enviar Solicitud de Distribución</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="flex flex-col items-center bg-[#111438] py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="IMAGES/logo-white.png" alt="Logo Blanco" class="logo-img-footer mx-auto mb-10" style="height: 90px;">
+            <div class="flex justify-center gap-10 mb-10">
+                 <a href="https://www.instagram.com/agustindlasierra/" target="_blank" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-facebook"></i></a>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="PQR.html" class="footer-link">PQR</a>
+                <a href="politica-de-datos.html" class="footer-link">POLÍTICA DE DATOS</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            <p class="text-[10px] text-white/20 tracking-widest uppercase">© 2026 AGUSTÍN DE LA SIERRA · COLOMBIA · RED NACIONAL</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+        window.addEventListener('scroll', () => { const h = document.getElementById('main-header'); if(h) h.classList.toggle('scrolled', window.scrollY > 50); });
+        
+        function handleDistributor(e) {
+            e.preventDefault();
+            const notice = document.getElementById('form-notice');
+            const name = document.getElementById('dist-name').value.trim();
+            const business = document.getElementById('dist-business').value.trim();
+            const type = document.getElementById('dist-type').value;
+            const city = document.getElementById('dist-city').value.trim();
+            const email = document.getElementById('dist-email').value.trim();
+            const phone = document.getElementById('dist-phone').value.trim();
+            const dob = document.getElementById('dist-dob').value;
+            const check = document.getElementById('dist-legal-check');
+
+            notice.style.display = "none";
+            notice.innerText = "";
+
+            if (!name && !business) { showError("Debe ingresar al menos el Nombre del Contacto o el Nombre de su Negocio."); return; }
+            if (!type) { showError("El campo 'Tipo de Negocio' es obligatorio."); return; }
+            if (!city) { showError("La 'Ciudad de Ubicación' es un dato obligatorio."); return; }
+            if (!email && !phone) { showError("Debe proporcionar al menos un medio de contacto: Correo Electrónico o WhatsApp."); return; }
+            if (!dob) { showError("La 'Fecha de Nacimiento' es obligatoria."); return; }
+            const birthDate = new Date(dob);
+            const age = Math.floor((new Date() - birthDate) / (31557600000));
+            if (age < 18) { showError("Estimado usuario, debe ser mayor de 18 años para postularse como distribuidor."); return; }
+            if (!check.checked) { showError("Debe aceptar el Aviso de Privacidad."); return; }
+
+            notice.style.background = "#E6FFFA";
+            notice.style.borderColor = "#38B2AC";
+            notice.innerHTML = "<strong>Solicitud Enviada Correctamente:</strong> ¡Gracias por tu interés! Nuestro equipo comercial analizará tu propuesta.";
+            notice.style.display = "block";
+            document.getElementById('distributor-form').style.opacity = "0.7";
+            document.getElementById('distributor-form').querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
+        }
+
+        function showError(msg) {
+            const n = document.getElementById('form-notice');
+            n.style.background = "#FFF4F6"; n.style.borderColor = "#FC638B";
+            n.innerText = msg; n.style.display = "block";
+        }
+        
+        const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

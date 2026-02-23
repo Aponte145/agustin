@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Agustín de la Sierra | Experiencias Exclusivas</title>
+    
+    <!-- SEO & IA -->
+    <meta name="description" content="Únete al Club Agustín de la Sierra. Obtén un 15% de descuento en tu primera compra y accede a beneficios exclusivos en nuestros vinos de fruta artesanales.">
+    
+    <link rel="icon" type="image/png" href="IMAGES/Isotipo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="agustin-styles.css">
+
+    <style>
+        /* Estilo Resaltado para el Menú Distribuidor Uniforme */
+        .nav-link-highlight { background-color: #FC638B; color: white !important; padding: 8px 16px !important; border-radius: 4px; font-weight: bold !important; transition: all 0.3s ease; }
+        .nav-link-highlight:hover { background-color: #111438; transform: scale(1.05); }
+        
+        /* Estilo Resaltado para Unirme al Club (Estado Activo) */
+        .nav-link-club { background-color: #45D4DB; color: #111438 !important; padding: 7px 15px !important; border-radius: 4px; transition: all 0.3s ease; font-weight: 600 !important; }
+
+        /* Cuadrícula de Beneficios */
+        .benefit-card { background: white; border: 1px solid #eee; padding: 35px 25px; border-radius: 4px; transition: all 0.3s ease; height: 100%; text-align: center; }
+        .benefit-card:hover { border-color: var(--pink); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .benefit-icon { font-size: 2.2rem; color: var(--pink); margin-bottom: 20px; display: block; }
+        .benefit-title { font-family: 'Poiret One', cursive; font-size: 1.1rem; font-weight: bold; color: var(--navy); margin-bottom: 12px; letter-spacing: 0.1em; }
+
+        /* Lead Magnet Hook */
+        .hook-banner { background-color: var(--navy); color: white; padding: 20px; border-radius: 4px; margin-bottom: 40px; border-left: 6px solid var(--pink); }
+
+        /* --- UNIFICACIÓN DE ESTILO DE FORMULARIO --- */
+        .input-group { position: relative; margin-bottom: 30px; }
+        .input-field { 
+            width: 100%; 
+            padding: 10px 0; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 14px; 
+            border: none; 
+            border-bottom: 1px solid #ddd; 
+            background: transparent; 
+            outline: none; 
+            transition: border-color 0.3s; 
+        }
+        
+        .input-field:focus { border-bottom-color: var(--navy); }
+        
+        .input-label { 
+            position: absolute; 
+            top: 10px; 
+            left: 0; 
+            font-family: 'Poiret One', cursive; 
+            font-size: 12px; 
+            letter-spacing: 0.1em; 
+            color: #999; 
+            pointer-events: none; 
+            transition: all 0.3s ease; 
+            text-transform: uppercase; 
+        }
+        
+        /* Efecto flotante unificado: Color Navy para evitar el rosado según instrucción */
+        .input-field:focus ~ .input-label, 
+        .input-field:not(:placeholder-shown) ~ .input-label,
+        .input-field:valid ~ .input-label { 
+            top: -15px; 
+            font-size: 10px; 
+            color: var(--navy); 
+            font-weight: bold; 
+        }
+
+        .btn-unified { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; position: relative; overflow: hidden; display: inline-block; cursor: pointer; }
+        .btn-unified:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 20px rgba(252, 99, 139, 0.2); background-color: #FC638B; border-color: #FC638B; color: white; }
+
+        #form-notice { display: none; background: #FFF4F6; border: 1px solid #FC638B; color: #111438; padding: 15px; font-size: 11px; margin-top: 20px; text-align: left; border-radius: 4px; border-left-width: 4px; line-height: 1.6; }
+        
+        .legal-check-wrapper { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; text-align: left; font-size: 10px; color: #666; line-height: 1.4; margin-top: 20px; }
+        .legal-check-wrapper input { margin-top: 3px; accent-color: #FC638B; }
+
+        #mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: #111438; z-index: 2000; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #mobile-menu.open { right: 0; }
+        .mobile-nav-link { font-family: 'Poiret One', cursive; font-size: 24px; color: white; margin: 20px 0; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="https://api.whatsapp.com/send?phone=573225693573" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- MENÚ MÓVIL UNIFORME -->
+    <div id="mobile-menu">
+        <button class="absolute top-8 right-8 text-white text-3xl" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="sabores.html" class="mobile-nav-link">Sabores</a>
+        <a href="distribuidores.html" class="mobile-nav-link">Ser Distribuidor</a>
+        <a href="club-agustin.html" class="mobile-nav-link" style="color: #45D4DB;">Unirme al Club</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+    </div>
+
+    <!-- HEADER UNIFORME -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <nav class="max-w-[1400px] w-full px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html"><img src="IMAGES/logo.png" alt="Logo" class="logo-img"></a>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="sabores.html" class="nav-link">Sabores</a>
+                <a href="distribuidores.html" class="nav-link nav-link-highlight">Ser Distribuidor</a>
+                <a href="club-agustin.html" class="nav-link nav-link-club">Unirme al Club</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO CLUB -->
+        <section class="hero-sabores" style="min-height: 55vh;">
+            <div class="hero-bg-img" style="background-image: url('images/heroclub.png');"></div>
+            <div class="absolute inset-0 bg-[#111438] opacity-75 z-[2]"></div>
+            <div class="relative z-[3] px-6 max-w-5xl mx-auto text-center">
+                <p class="font-body italic text-[var(--blue)] mb-4 tracking-widest text-sm font-bold uppercase reveal-element uppercase">La esencia de la Serranía en tu comunidad</p>
+                <h1 class="font-display text-3xl md:text-6xl mb-6 tracking-widest reveal-element leading-tight uppercase">Club Agustín de la Sierra</h1>
+                <p class="font-body text-white/80 max-w-2xl mx-auto text-sm md:text-base reveal-element leading-relaxed">Forma parte de nuestra comunidad selecta y accede a un mundo de privilegios diseñados para los amantes del vino artesanal.</p>
+            </div>
+        </section>
+
+        <!-- BENEFICIOS ORGANIZADOS -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal-element">
+                    <h2 class="font-display text-3xl text-[var(--navy)] mb-4 tracking-widest uppercase">Privilegios del Miembro</h2>
+                    <div class="w-12 h-1 bg-[var(--pink)] mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-element">
+                    <div class="benefit-card">
+                        <i class="fas fa-clock benefit-icon"></i>
+                        <h3 class="benefit-title">Preventa Exclusiva</h3>
+                        <p class="text-xs text-gray-500 font-body">Acceso anticipado a ediciones limitadas y nuevas cosechas de temporada antes que el público general.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-vial benefit-icon"></i>
+                        <h3 class="benefit-title">Catador Beta</h3>
+                        <p class="text-xs text-gray-500 font-body">Sé parte de nuestro panel de expertos probando prototipos de nuevos sabores y mezclas experimentales.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-graduation-cap benefit-icon"></i>
+                        <h3 class="benefit-title">Masterclasses</h3>
+                        <p class="text-xs text-gray-500 font-body">Descuentos especiales en talleres de mixología y maridaje de autor con nuestro sommelier de la casa.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-tag benefit-icon"></i>
+                        <h3 class="benefit-title">Personalización</h3>
+                        <p class="text-xs text-gray-500 font-body">Derecho a solicitar etiquetas personalizadas para tus botellas en eventos especiales y regalos corporativos.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 reveal-element">
+                    <div class="benefit-card">
+                        <i class="fab fa-whatsapp benefit-icon"></i>
+                        <h3 class="benefit-title">Comunidad VIP</h3>
+                        <p class="text-xs text-gray-500 font-body">Acceso al grupo exclusivo de miembros con atención personalizada, promociones y noticias de primera mano.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-ticket-alt benefit-icon"></i>
+                        <h3 class="benefit-title">Catas & Eventos</h3>
+                        <p class="text-xs text-gray-500 font-body">Descuentos exclusivos en nuestras experiencias sensoriales, catas privadas y ferias nacionales.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-truck benefit-icon"></i>
+                        <h3 class="benefit-title">Envíos Socio Fiel</h3>
+                        <p class="text-xs text-gray-500 font-body">Disfruta de beneficios de envío gratuito en pedidos seleccionados cada mes por tu fidelidad.</p>
+                    </div>
+                    <div class="benefit-card border-[var(--blue)]">
+                        <i class="fas fa-medal benefit-icon" style="color: var(--blue);"></i>
+                        <h3 class="benefit-title">Niveles de Socio</h3>
+                        <p class="text-xs text-gray-500 font-body">Sube de nivel: de <strong>Socio Semilla</strong> a <strong>Socio Cosecha</strong> y <strong>Socio Legado</strong> para desbloquear sorpresas únicas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE CAPTACIÓN UNIFICADO -->
+        <section class="py-24 px-6 bg-gray-50">
+            <div class="max-w-4xl mx-auto">
+                <div class="hook-banner reveal-element">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-gift text-3xl text-[var(--pink)]"></i>
+                        <div>
+                            <h3 class="font-display text-lg font-bold uppercase">¡BENEFICIO DE BIENVENIDA!</h3>
+                            <p class="font-body text-sm opacity-90">Regístrate hoy y recibe un <strong>15% DE DESCUENTO</strong> inmediato en tu primera compra.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-2xl p-8 md:p-16 border-t-8 border-[var(--blue)] reveal-element">
+                    <h3 class="font-display text-2xl text-[var(--navy)] mb-4 tracking-widest text-center uppercase">Inscripción al Club</h3>
+                    <p class="text-center font-body text-xs text-gray-400 mb-12 uppercase tracking-widest">Completa tus datos y activa tus privilegios</p>
+                    
+                    <form id="club-form" onsubmit="handleClub(event)" novalidate>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="input-group">
+                                <input type="text" id="club-name" class="input-field" placeholder=" ">
+                                <label class="input-label">Nombre Completo</label>
+                            </div>
+                            <div class="input-group">
+                                <div class="flex items-center border-b border-[#ddd]">
+                                    <span class="text-gray-400 text-sm pr-2">+57</span>
+                                    <input type="tel" id="club-phone" class="input-field border-none py-2" placeholder=" ">
+                                </div>
+                                <label class="input-label" style="top: -15px; font-size: 10px;">WhatsApp / Celular</label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="input-group">
+                                <select id="club-nationality" class="input-field">
+                                    <option value="Colombia" selected>Colombia</option>
+                                    <option value="Argentina">Argentina</option>
+                                    <option value="Chile">Chile</option>
+                                    <option value="España">España</option>
+                                    <option value="México">México</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                                <label class="input-label">Nacionalidad</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="club-city" class="input-field" placeholder=" ">
+                                <label class="input-label">Ciudad de Residencia</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="date" id="club-dob" class="input-field">
+                            <label class="input-label">Fecha de Nacimiento</label>
+                        </div>
+
+                        <!-- Sección de campos complementarios sin título según requerimiento -->
+                        <div class="mt-8 mb-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="input-group">
+                                    <select id="club-status" class="input-field">
+                                        <option value="" selected></option>
+                                        <option value="Soltero">Soltero/a</option>
+                                        <option value="Casado">Casado/a</option>
+                                        <option value="Unión Libre">Unión Libre</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    <label class="input-label">Estado Civil</label>
+                                </div>
+                                <div class="input-group">
+                                    <select id="club-occupation" class="input-field">
+                                        <option value="" selected></option>
+                                        <option value="Profesional Independiente">Profesional Independiente</option>
+                                        <option value="Empleado">Empleado/a</option>
+                                        <option value="Empresario">Empresario/a</option>
+                                        <option value="Comerciante">Comerciante</option>
+                                        <option value="Estudiante">Estudiante</option>
+                                        <option value="Hogar">Hogar</option>
+                                        <option value="Pensionado">Pensionado/a</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    <label class="input-label">Ocupación</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="legal-check-wrapper">
+                            <input type="checkbox" id="club-legal-check">
+                            <span>He leído y acepto el Aviso de Privacidad. Autorizo a AGUSTIN DE LA SIERRA S.A.S. a tratar mis datos para fines de mercadeo y a compartirlos con sus aliados comerciales estratégicos para el envío de publicidad de terceros, así como a contactarme vía WhatsApp, correo, teléfono y redes sociales conforme a la ley.</span>
+                        </label>
+
+                        <div id="form-notice"></div>
+                        <button type="submit" class="btn-unified dark w-full py-4 mt-8 uppercase font-bold tracking-widest">Unirme al Club y Obtener mi Descuento</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="flex flex-col items-center bg-[#111438] py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="IMAGES/logo-white.png" alt="Logo Blanco" class="logo-img-footer mx-auto mb-10" style="height: 90px;">
+            <div class="flex justify-center gap-10 mb-10">
+                 <a href="https://www.instagram.com/agustindlasierra/" target="_blank" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-facebook"></i></a>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="PQR.html" class="footer-link">PQR</a>
+                <a href="politica-de-datos.html" class="footer-link">POLÍTICA DE DATOS</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            <p class="text-[10px] text-white/20 tracking-widest uppercase">© 2026 AGUSTÍN DE LA SIERRA · COLOMBIA</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+        window.addEventListener('scroll', () => { const h = document.getElementById('main-header'); if(h) h.classList.toggle('scrolled', window.scrollY > 50); });
+        
+        function handleClub(e) {
+            e.preventDefault();
+            const notice = document.getElementById('form-notice');
+            const name = document.getElementById('club-name').value.trim();
+            const phone = document.getElementById('club-phone').value.trim();
+            const city = document.getElementById('club-city').value.trim();
+            const dob = document.getElementById('club-dob').value;
+            const check = document.getElementById('club-legal-check');
+
+            notice.style.display = "none";
+            notice.innerText = "";
+
+            if (!name) { showError("Estimado usuario, el Nombre Completo es un dato obligatorio."); return; }
+            if (name.length < 3 || !/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(name)) { showError("Por favor, ingrese un nombre válido sin números ni caracteres especiales."); return; }
+            
+            if (!phone) { showError("El WhatsApp / Celular es indispensable para contactarlo con los beneficios."); return; }
+            if (!/^[0-9]{10}$/.test(phone)) { showError("El número de contacto debe tener exactamente 10 dígitos numéricos."); return; }
+            
+            if (!city) { showError("La Ciudad de Residencia es un dato obligatorio para conocer la cobertura de beneficios."); return; }
+            
+            if (!dob) { showError("La Fecha de Nacimiento es necesaria para validar su membresía."); return; }
+            const birthDate = new Date(dob);
+            const age = Math.floor((new Date() - birthDate) / (31557600000));
+            if (age < 18) { showError("Lo sentimos, debe ser mayor de 18 años para formar parte del Club Agustín de la Sierra."); return; }
+            
+            if (!check.checked) { showError("Para continuar, es necesario que lea y acepte nuestro Aviso de Privacidad y Tratamiento de Datos."); return; }
+
+            // ÉXITO
+            notice.style.background = "#E6FFFA";
+            notice.style.borderColor = "#38B2AC";
+            notice.innerHTML = "<strong>¡Bienvenido al Club!</strong> Sus datos han sido registrados exitosamente. En breve recibirá un mensaje en su WhatsApp con su cupón del 15% de descuento.";
+            notice.style.display = "block";
+            document.getElementById('club-form').style.opacity = "0.7";
+            document.getElementById('club-form').querySelectorAll('input, select, button').forEach(el => el.disabled = true);
+        }
+
+        function showError(msg) {
+            const n = document.getElementById('form-notice');
+            n.style.background = "#FFF4F6"; 
+            n.style.borderColor = "#FC638B";
+            n.innerText = msg; 
+            n.style.display = "block";
+        }
+        
+        const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

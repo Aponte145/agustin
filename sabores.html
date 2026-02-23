@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Sabores | Agustín de la Sierra | Vinos de Fruta</title>
+    
+    <!-- ESTRATEGIA SEO & IA -->
+    <meta name="description" content="Explora el catálogo premium de Agustín de la Sierra: Vino de Corozo, Mora, Café y Sangrías artesanales de la Serranía del Perijá.">
+    <meta name="keywords" content="vino de corozo, vino de mora, vino de café, sangría artesanal, agustin de la sierra sabores">
+    <link rel="canonical" href="https://agustindelasierra.com/sabores.html">
+
+    <!-- DATOS ESTRUCTURADOS (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Catálogo de Sabores - Agustín de la Sierra",
+      "description": "Vinos artesanales elaborados con frutas de la Serranía del Perijá.",
+      "url": "https://agustindelasierra.com/sabores.html"
+    }
+    </script>
+    
+    <link rel="icon" type="image/png" href="IMAGES/Isotipo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="agustin-styles.css">
+    
+    <style>
+        /* --- NAVEGACIÓN UNIFORME --- */
+        .nav-link-highlight { background-color: #FC638B; color: white !important; padding: 8px 16px !important; border-radius: 4px; font-weight: bold !important; transition: all 0.3s ease; }
+        .nav-link-highlight:hover { background-color: #111438; transform: scale(1.05); }
+        
+        .nav-link-club { border: 1px solid #45D4DB; color: #45D4DB !important; padding: 7px 15px !important; border-radius: 4px; transition: all 0.3s ease; font-weight: 600 !important; }
+        .nav-link-club:hover { background-color: #45D4DB; color: #111438 !important; }
+
+        /* --- ESTÁNDAR DE ANIMACIÓN DE BOTONES --- */
+        .btn-unified { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
+            position: relative; overflow: hidden; display: inline-block;
+        }
+        .btn-unified:hover { 
+            transform: translateY(-3px) scale(1.02) !important; 
+            box-shadow: 0 10px 20px rgba(252, 99, 139, 0.2) !important; 
+            background-color: #FC638B !important; border-color: #FC638B !important; color: white !important; 
+        }
+
+        /* --- ESTILOS DE PRODUCTO --- */
+        .presentation-btn { cursor: pointer; border: 1px solid #eee; border-radius: 4px; padding: 10px; transition: all 0.3s ease; background: #fff; min-width: 85px; text-align: center; }
+        .presentation-btn.selected-presentation { border-color: var(--pink); background-color: rgba(252, 99, 139, 0.05); }
+        .format-badge { display: inline-block; font-size: 9px; padding: 2px 8px; border: 1px solid #eee; border-radius: 12px; color: #888; margin: 0 2px; text-transform: uppercase; }
+        
+        .product-image-container { position: relative; overflow: hidden; background-color: #fcfcfc; height: 350px; }
+        .flavor-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px 20px; background: linear-gradient(to top, rgba(17, 20, 56, 0.85) 0%, transparent 100%); color: white; z-index: 5; text-align: left; }
+        .flavor-name-display { font-family: 'Poiret One', cursive; font-size: 1.6rem; font-weight: bold; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        
+        .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .product-card:hover .product-image { transform: scale(1.05); }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(17, 20, 56, 0.85); backdrop-filter: blur(8px); z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.4s ease; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: white; width: 100%; max-width: 950px; border-radius: 4px; display: flex; flex-direction: column; overflow: hidden; transform: translateY(30px); transition: all 0.4s ease; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        @media (min-width: 768px) { .modal-content { flex-direction: row; } .modal-left { width: 45%; min-height: 500px; } .modal-right { width: 55%; padding: 50px; } }
+        
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 30px; cursor: pointer; z-index: 10; color: var(--navy); }
+        
+        #mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: #111438; z-index: 2000; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #mobile-menu.open { right: 0; }
+        .mobile-nav-link { font-family: 'Poiret One', cursive; font-size: 24px; color: white; margin: 20px 0; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="https://api.whatsapp.com/send?phone=573225693573" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- MENÚ MÓVIL UNIFORME -->
+    <div id="mobile-menu">
+        <button class="absolute top-8 right-8 text-white text-3xl" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="sabores.html" class="mobile-nav-link" style="color: #FC638B;">Sabores</a>
+        <a href="distribuidores.html" class="mobile-nav-link">Ser Distribuidor</a>
+        <a href="club-agustin.html" class="mobile-nav-link">Unirme al Club</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+    </div>
+
+    <!-- HEADER UNIFORME -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <nav class="max-w-[1400px] w-full px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html"><img src="IMAGES/logo.png" alt="Logo" class="logo-img"></a>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="sabores.html" class="nav-link" style="color: var(--pink);">Sabores</a>
+                <a href="distribuidores.html" class="nav-link nav-link-highlight">Ser Distribuidor</a>
+                <a href="club-agustin.html" class="nav-link nav-link-club">Unirme al Club</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SABORES -->
+        <section class="hero-sabores" style="min-height: 65vh;">
+            <div class="hero-bg-img" style="background-image: url('IMAGES/HEROsabores.jpg.png');"></div>
+            <div class="absolute inset-0 bg-[#111438] opacity-65 z-[2]"></div>
+            <div class="relative z-[3] px-6 max-w-5xl mx-auto text-center">
+                <p class="font-body italic text-[var(--blue)] mb-4 tracking-widest text-sm uppercase font-bold reveal-element">Frutas Colombianas de la Provincia</p>
+                <h1 class="font-display text-4xl md:text-7xl mb-6 tracking-widest reveal-element leading-none">Vinos y Sangrías</h1>
+                <p class="font-body text-white/80 max-w-2xl mx-auto text-sm md:text-base reveal-element">Artesanía líquida con el alma de la Serranía del Perijá.</p>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section class="py-24 px-4 md:px-12 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="filters-container flex md:justify-center overflow-x-auto gap-4 mb-16 reveal-element">
+                    <button class="filter-btn active" onclick="filterSelection('all')">TODOS</button>
+                    <button class="filter-btn" onclick="filterSelection('vinos')">VINOS DE FRUTA</button>
+                    <button class="filter-btn" onclick="filterSelection('sangrias')">SANGRÍAS</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="products-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- VENTANA MODAL (Lógica aprobada mantenida) -->
+    <div id="product-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-left">
+                <img id="modal-img" src="" alt="Producto" class="modal-img-full" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='IMAGES/placeholder.jpg'">
+            </div>
+            <div class="modal-right">
+                <span id="modal-category" class="text-[10px] tracking-widest text-[var(--blue)] font-bold uppercase mb-2 block"></span>
+                <h2 id="modal-title" class="font-display text-4xl text-[var(--navy)] mb-6 uppercase"></h2>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-display text-xs border-b pb-1 mb-2 uppercase tracking-widest text-gray-400">Origen de la fruta</h4>
+                        <p id="modal-fruit-info" class="text-sm text-gray-500 leading-relaxed"></p>
+                    </div>
+                    <div class="bg-gray-50 p-4 border-l-4 border-[var(--pink)]">
+                        <h4 class="font-display text-xs mb-2 uppercase">Notas de Cata</h4>
+                        <p id="modal-sommelier" class="text-sm text-gray-600 italic"></p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold uppercase mb-3">Presentaciones disponibles:</p>
+                        <div class="flex gap-4 flex-wrap" id="modal-prices"></div>
+                        <a id="modal-cta-whatsapp" href="#" target="_blank" class="block w-full text-center btn-unified mt-8 py-4">
+                            <i class="fab fa-whatsapp mr-2"></i> PEDIR POR WHATSAPP
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER UNIFORME -->
+    <footer class="flex flex-col items-center bg-[#111438] py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="IMAGES/logo-white.png" alt="Agustín de la Sierra" class="logo-img-footer mx-auto mb-10" style="height: 90px;">
+            <div class="flex justify-center gap-10 mb-10">
+                 <a href="https://www.instagram.com/agustindlasierra/" target="_blank" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-facebook"></i></a>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="PQR.html" class="footer-link">PQR</a>
+                <a href="politica-de-datos.html" class="footer-link">POLÍTICA DE DATOS</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            <p class="text-[10px] text-white/20 tracking-widest uppercase">© 2026 AGUSTÍN DE LA SIERRA · COLOMBIA</p>
+        </div>
+    </footer>
+
+    <script>
+        const productsData = [
+            { 
+                id: 'corozo', category: 'vinos', title: 'COROZO', 
+                mainImg: 'IMAGES/corozo.png', 
+                fruitInfo: 'Fruto silvestre autóctono del caribe colombiano.', 
+                sommelier: 'Notas profundas de frutos rojos con final persistente.', 
+                prices: [
+                    { size: '330ml', price: '$12.000', img: 'IMAGES/vino de corozo 330ml.png' }, 
+                    { size: '750ml', price: '$30.000', img: 'IMAGES/vino de corozo 750ml.png' }
+                ] 
+            },
+            { 
+                id: 'mora', category: 'vinos', title: 'MORA', 
+                mainImg: 'IMAGES/mora.png', 
+                fruitInfo: 'Mora de castilla cultivada en la serranía.', 
+                sommelier: 'Explosión de frutos negros confitados.', 
+                prices: [
+                    { size: '330ml', price: '$12.000', img: 'IMAGES/vino de mora 330ml.png' }, 
+                    { size: '750ml', price: '$30.000', img: 'IMAGES/vino de mora 750ml.png' }
+                ] 
+            },
+            { 
+                id: 'cafe', category: 'vinos', title: 'CAFÉ', 
+                mainImg: 'IMAGES/cafe.png', 
+                fruitInfo: 'Café especial de altura del Perijá.', 
+                sommelier: 'Aromas a caramelo, chocolate y granos tostados.', 
+                prices: [
+                    { size: '330ml', price: '$12.000', img: 'IMAGES/vino de cafe biche 330ml.png' }, 
+                    { size: '750ml', price: '$30.000', img: 'IMAGES/vino de cafe biche 750ml.png' }
+                ] 
+            },
+            { 
+                id: 'tropical', category: 'vinos', title: 'CODAZZI TROPICAL', 
+                mainImg: 'IMAGES/tropical.png', 
+                fruitInfo: 'Mango y Maracuyá vibrante.', 
+                sommelier: 'Exótico, perfumado y chispeante en boca.', 
+                prices: [
+                    { size: '330ml', price: '$12.000', img: 'IMAGES/vino de codazzi tropical 330ml.png' }, 
+                    { size: '750ml', price: '$30.000', img: 'IMAGES/vino de codazzi tropical 750ml.png' }
+                ] 
+            },
+            { 
+                id: 'jamaica', category: 'vinos', title: 'FLOR DE JAMAICA', 
+                mainImg: 'IMAGES/jamaica.png', 
+                fruitInfo: 'Elegancia floral y color rubí intenso.', 
+                sommelier: 'Notas que recuerdan un rosado seco sofisticado.', 
+                prices: [
+                    { size: '330ml', price: '$12.000', img: 'IMAGES/vino de flor de jamaica 330ml.png' }, 
+                    { size: '750ml', price: '$40.000', img: 'IMAGES/vino de flor de jamaica 750ml.png' }
+                ] 
+            },
+            { 
+                id: 'sangria-roja', category: 'sangrias', title: 'SANGRÍA ROJA', 
+                mainImg: 'IMAGES/sangria-roja.png', 
+                fruitInfo: 'Infusión frutal tradicional macerada.', 
+                sommelier: 'Festiva, equilibrada y muy refrescante.', 
+                prices: [
+                    { size: '1.5L', price: 'Consultar', img: 'IMAGES/sangria roja 1.5l.png' },
+                    { size: '3L', price: 'Consultar', img: 'IMAGES/sangria roja 3l.png' }
+                ] 
+            },
+            { 
+                id: 'sangria-blanca', category: 'sangrias', title: 'SANGRÍA BLANCA', 
+                mainImg: 'IMAGES/sangria-blanca.png', 
+                fruitInfo: 'Durazno y hierbabuena fresca.', 
+                sommelier: 'Chispeante, ligera y delicadamente cítrica.', 
+                prices: [
+                    { size: '1.5L', price: 'Consultar', img: 'IMAGES/sangria blanca 1.5l.png' },
+                    { size: '3L', price: 'Consultar', img: 'IMAGES/sangria blanca 3l.png' }
+                ] 
+            }
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            if(!grid) return;
+            grid.innerHTML = productsData.map(p => `
+                <article class="product-card filter-item ${p.category} reveal-element" onclick="openModal('${p.id}')">
+                    <div class="product-image-container">
+                        <img src="${p.mainImg}" alt="${p.title}" class="product-image" onerror="this.src='IMAGES/placeholder.jpg'">
+                        <div class="flavor-overlay"><h3 class="flavor-name-display">${p.title}</h3></div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="mb-3">${p.prices.map(pr => `<span class="format-badge">${pr.size}</span>`).join('')}</div>
+                        <p class="text-[var(--navy)] font-bold text-sm mb-2">${p.prices[0].price === 'Consultar' ? 'Consultar Precios' : 'Desde ' + p.prices[0].price}</p>
+                        <p class="text-[9px] tracking-[0.2em] text-gray-400 uppercase">Ver Detalles</p>
+                    </div>
+                </article>`).join('');
+            observeElements();
+        }
+
+        function openModal(id) {
+            const p = productsData.find(x => x.id === id);
+            if(!p) return;
+            document.getElementById('modal-img').src = p.mainImg;
+            document.getElementById('modal-title').innerText = p.title;
+            document.getElementById('modal-category').innerText = p.category === 'vinos' ? 'VINO DE FRUTA' : 'SANGRÍA ARTESANAL';
+            document.getElementById('modal-fruit-info').innerText = p.fruitInfo;
+            document.getElementById('modal-sommelier').innerText = p.sommelier;
+            document.getElementById('modal-prices').innerHTML = p.prices.map((pr, i) => `
+                <div class="presentation-btn ${i===0?'selected-presentation':''}" onclick="updatePres('${pr.img}','${pr.size}','${p.title}','${pr.price}',this)">
+                    <span class="block text-[10px] uppercase">${pr.size}</span><span class="font-bold text-xs">${pr.price}</span>
+                </div>`).join('');
+            
+            updatePres(p.prices[0].img, p.prices[0].size, p.title, p.prices[0].price, null);
+            document.getElementById('product-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updatePres(img, size, title, price, el) {
+            const mImg = document.getElementById('modal-img');
+            mImg.style.opacity = '0.5';
+            setTimeout(() => { 
+                mImg.src = img; 
+                mImg.style.opacity = '1'; 
+            }, 150);
+            if(el) { 
+                document.querySelectorAll('.presentation-btn').forEach(b => b.classList.remove('selected-presentation')); 
+                el.classList.add('selected-presentation'); 
+            }
+            const msg = `Hola, me interesa el ${title} en su presentación de ${size} (${price}). ¿Me podrían dar más información?`;
+            document.getElementById('modal-cta-whatsapp').href = `https://api.whatsapp.com/send?phone=573225693573&text=${encodeURIComponent(msg)}`;
+        }
+
+        function closeModal() { document.getElementById('product-modal').classList.remove('active'); document.body.style.overflow = 'auto'; }
+        window.onclick = e => { if(e.target == document.getElementById('product-modal')) closeModal(); }
+        function toggleMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+        window.addEventListener('scroll', () => { const h = document.getElementById('main-header'); if(h) h.classList.toggle('scrolled', window.scrollY > 50); });
+        
+        function filterSelection(c) {
+            const items = document.getElementsByClassName("filter-item");
+            const btns = document.getElementsByClassName("filter-btn");
+            Array.from(btns).forEach(b => {
+                const isActive = b.innerText.toLowerCase().includes(c) || (c === 'all' && b.innerText === 'TODOS');
+                b.classList.toggle("active", isActive);
+            });
+            Array.from(items).forEach(it => {
+                it.style.display = (c === 'all' || it.classList.contains(c)) ? "block" : "none";
+            });
+        }
+
+        const observeElements = () => { const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 }); document.querySelectorAll('.reveal-element').forEach(el => obs.observe(el)); };
+        document.addEventListener("DOMContentLoaded", renderProducts);
+    </script>
+</body>
+</html>

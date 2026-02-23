@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & IA OPTIMIZATION -->
+    <title>Política de Tratamiento de Datos | Agustín de la Sierra | Vinos Colombianos</title>
+    <meta name="description" content="Conozca nuestra Política de Tratamiento de Datos Personales y Aviso de Privacidad. En Agustín de la Sierra protegemos su información conforme a la Ley 1581 de 2012.">
+    <link rel="canonical" href="https://agustindelasierra.com/politica-de-datos.html">
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="IMAGES/Isotipo.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="agustin-styles.css">
+
+    <style>
+        /* Estilos específicos para legibilidad de documentos legales */
+        .legal-content-section {
+            max-width: 850px;
+            margin: 0 auto;
+            color: var(--navy);
+            line-height: 1.8;
+        }
+
+        .legal-content-section h1 {
+            font-family: 'Poiret One', cursive;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 2px solid var(--blue);
+            padding-bottom: 1rem;
+        }
+
+        .legal-content-section h2 {
+            font-family: 'Poiret One', cursive;
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 1.2rem;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .legal-content-section p {
+            margin-bottom: 1.5rem;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        .legal-content-section ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .legal-content-section li {
+            margin-bottom: 0.8rem;
+            font-size: 15px;
+            list-style-type: none;
+            position: relative;
+        }
+
+        .legal-content-section li::before {
+            content: "•";
+            color: var(--blue);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .nav-link-highlight { background-color: #FC638B; color: white !important; padding: 8px 16px !important; border-radius: 4px; font-weight: bold !important; transition: all 0.3s ease; }
+        .nav-link-highlight:hover { background-color: #111438; transform: scale(1.05); }
+
+        .nav-link-club { border: 1px solid #45D4DB; color: #45D4DB !important; padding: 7px 15px !important; border-radius: 4px; transition: all 0.3s ease; font-weight: 600 !important; }
+        .nav-link-club:hover { background-color: #45D4DB; color: #111438 !important; }
+
+        .privacy-box-highlight {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--navy);
+            padding: 2rem;
+            margin: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        #mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background-color: #111438; z-index: 2000; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #mobile-menu.open { right: 0; }
+        .mobile-nav-link { font-family: 'Poiret One', cursive; font-size: 24px; color: white; margin: 20px 0; text-transform: uppercase; letter-spacing: 0.2em; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://api.whatsapp.com/send?phone=573225693573" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- MENÚ MÓVIL UNIFORME -->
+    <div id="mobile-menu">
+        <button class="absolute top-8 right-8 text-white text-3xl" onclick="toggleMenu()" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+        <a href="index.html" class="mobile-nav-link">Inicio</a>
+        <a href="sabores.html" class="mobile-nav-link">Sabores</a>
+        <a href="distribuidores.html" class="mobile-nav-link">Ser Distribuidor</a>
+        <a href="club-agustin.html" class="mobile-nav-link">Unirme al Club</a>
+        <a href="contacto.html" class="mobile-nav-link">Contacto</a>
+    </div>
+
+    <!-- HEADER ESTANDARIZADO -->
+    <header id="main-header" class="fixed top-0 w-full z-50">
+        <nav class="max-w-[1400px] w-full px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html">
+                <img src="IMAGES/logo.png" alt="Agustín de la Sierra" class="logo-img">
+            </a>
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="sabores.html" class="nav-link">Sabores</a>
+                <a href="distribuidores.html" class="nav-link nav-link-highlight">Ser Distribuidor</a>
+                <a href="club-agustin.html" class="nav-link nav-link-club">Unirme al Club</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            <button class="lg:hidden text-2xl text-white" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-sabores" style="min-height: 45vh;">
+        <div class="hero-bg-img" style="background-image: url('IMAGES/HeroPoliticadatos.png');"></div>
+        <div class="absolute inset-0 bg-[#111438] opacity-75 z-[2]"></div>
+        <div class="relative z-[3] px-6 max-w-5xl mx-auto text-center">
+            <p class="font-body italic text-[var(--blue)] mb-4 tracking-widest text-sm font-bold uppercase reveal-element">Compromiso y Transparencia</p>
+            <h1 class="font-display text-3xl md:text-5xl mb-6 tracking-widest reveal-element leading-tight uppercase">Política de Tratamiento de Datos</h1>
+        </div>
+    </section>
+
+    <!-- CONTENIDO LEGAL SEGÚN DOCUMENTO SUMINISTRADO -->
+    <article class="py-24 px-6 bg-white">
+        <div class="legal-content-section reveal-element">
+            <h1>AVISO DE PRIVACIDAD Y AUTORIZACIÓN DE TRATAMIENTO DE DATOS PERSONALES</h1>
+            
+            <p>
+                <strong>AGUSTIN DE LA SIERRA S.A.S.</strong> (en adelante "LA COMPAÑÍA"), en cumplimiento de la Ley Estatutaria 1581 de 2012, el Decreto 1377 de 2013 y la Ley 2300 de 2023, informa a sus clientes y usuarios que es Responsable del Tratamiento de los datos personales recolectados a través de este sitio web (agustindelasierra.com) y demás canales comerciales.
+            </p>
+
+            <p>
+                Al aceptar este aviso, usted autoriza de manera libre, previa, expresa e informada a <strong>AGUSTIN DE LA SIERRA S.A.S.</strong> para recolectar, almacenar, usar, circular, transmitir y transferir sus datos personales bajo las siguientes condiciones:
+            </p>
+
+            <h2>1. FINALIDADES COMERCIALES Y DE MERCADEO OMNICANAL</h2>
+            <p>Sus datos de contacto (incluyendo número celular, correo electrónico, dirección física y perfil de redes sociales) serán utilizados para:</p>
+            <ul>
+                <li><strong>Gestión Comercial:</strong> Enviarle información sobre nuestros vinos, lanzamientos, eventos, promociones y contenido relacionado con la cultura vitivinícola.</li>
+                <li><strong>Contacto Multicanal:</strong> Contactarlo a través de llamadas telefónicas, mensajes de texto (SMS), sistemas de mensajería instantánea (WhatsApp, Telegram, etc.), buzón de voz y redes sociales.</li>
+                <li><strong>Cumplimiento Ley 2300:</strong> Todos los contactos se realizarán respetando estrictamente los horarios hábiles establecidos en la Ley 2300 de 2023 ("Ley Dejen de Fregar"), garantizando su derecho a la intimidad.</li>
+            </ul>
+
+            <h2>2. COMPARTICIÓN DE DATOS CON TERCEROS Y ALIADOS (CLÁUSULA DE TRANSFERENCIA)</h2>
+            <p>
+                Usted autoriza expresamente a LA COMPAÑÍA a compartir, transmitir y/o transferir sus datos personales a terceros aliados comerciales y marcas asociadas. Esta autorización nos permite entregar su información de contacto a empresas con las que <strong>AGUSTIN DE LA SIERRA S.A.S.</strong> celebre convenios comerciales o alianzas estratégicas, con el objetivo de que dichas empresas puedan:
+            </p>
+            <ul>
+                <li>Enviarle ofertas y publicidad directa sobre sus propios productos y servicios.</li>
+                <li>Realizar actividades de mercadeo conjunto y promoción cruzada.</li>
+                <li>Los aliados pertenecerán a sectores afines y complementarios, tales como: gastronomía, turismo, hotelería, organización de eventos, sector financiero y asegurador, y comercio de productos gourmet.</li>
+            </ul>
+
+            <h2>3. DERECHOS DEL TITULAR</h2>
+            <p>
+                Como titular de la información, usted tiene derecho a conocer, actualizar y rectificar sus datos personales; solicitar prueba de la autorización otorgada; ser informado sobre el uso que se le ha dado a sus datos; revocar la autorización y/o solicitar la supresión del dato cuando no exista un deber legal o contractual de conservarlo; y acceder gratuitamente a sus datos.
+            </p>
+
+            <h2>4. CANALES DE ATENCIÓN Y POLÍTICA</h2>
+            <p>Para ejercer sus derechos de Habeas Data, puede contactarnos a través de:</p>
+            <ul>
+                <li><strong>Correo Electrónico:</strong> agustindlasierra@gmail.com</li>
+                <li><strong>Teléfono/WhatsApp:</strong> +57 3225693573</li>
+                <li><strong>Dirección:</strong> Cra. 6 # 16-48, Agustín Codazzi, Cesar, Colombia.</li>
+            </ul>
+            <p>Nuestra Política de Tratamiento de Información completa, donde se detallan los procedimientos y la vigencia de las bases de datos, está disponible para su consulta en: 👉 <a href="https://www.agustindelasierra.com/politica-de-datos" class="text-[var(--pink)] underline">www.agustindelasierra.com/politica-de-datos</a></p>
+
+            <div class="privacy-box-highlight">
+                <p class="font-bold mb-4 uppercase text-[var(--navy)]">TEXTO PARA LA CASILLA DE VERIFICACIÓN (CHECKBOX) EN FORMULARIOS WEB</p>
+                <p class="italic">
+                    [ ] He leído y acepto el Aviso de Privacidad. Autorizo a AGUSTIN DE LA SIERRA S.A.S. a tratar mis datos para fines de mercadeo y a compartirlos con sus aliados comerciales estratégicos para el envío de publicidad de terceros, así como a contactarme vía WhatsApp, correo, teléfono y redes sociales conforme a la ley.
+                </p>
+            </div>
+        </div>
+    </article>
+
+    <!-- FOOTER ESTANDARIZADO -->
+    <footer class="flex flex-col items-center bg-[#111438] py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <img src="IMAGES/logo-white.png" alt="Logo Blanco" class="logo-img-footer mx-auto mb-10" style="height: 90px;">
+            <div class="flex justify-center gap-10 mb-10">
+                 <a href="https://www.instagram.com/agustindlasierra/" target="_blank" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-instagram"></i></a>
+                 <a href="#" class="text-white text-2xl hover:text-[var(--pink)] transition-colors"><i class="fab fa-facebook"></i></a>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="PQR.html" class="footer-link">PQR</a>
+                <a href="politica-de-datos.html" class="footer-link" style="color: var(--pink);">POLÍTICA DE DATOS</a>
+                <a href="contacto.html" class="footer-link">CONTACTO</a>
+            </nav>
+            <p class="text-[10px] text-white/20 tracking-widest uppercase">© 2026 AGUSTÍN DE LA SIERRA · COLOMBIA</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() { 
+            const menu = document.getElementById('mobile-menu');
+            if(menu) menu.classList.toggle('open'); 
+        }
+
+        window.addEventListener('scroll', () => { 
+            const h = document.getElementById('main-header'); 
+            if(window.scrollY > 50) h.classList.add('scrolled'); 
+            else h.classList.remove('scrolled'); 
+        });
+
+        const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
